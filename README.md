@@ -1,14 +1,17 @@
 # Urban Dictionary Data Collector
 
-Script used to download the entire Urban Dictionary data set. Actual data set is pretty large, so I've split it into four Google Fusion Tables:
+Script used to download the entire Urban Dictionary dataset. Actual dataset is pretty large, so I've split it into four Google Fusion Tables:
 
 * [Part One][part1]
 * [Part Two][part2]
 * [Part Three][part3]
 * [Part Four][part4]
 
-## Usage
-Requires a word list to download entries for. [Try grabbing the one from here][word_list]. Put the word list in 
+## Downloading the Data Yourself
+If you want to collect your own sample from urban dictionary, this repo includes a few scripts that can help you do just that.
+
+### `download.js`
+Main entry downloader. Requires a word list to download entries for. [Try grabbing the one from here][word_list]. 
 
 ```bash
 $ npm install
@@ -17,7 +20,7 @@ $ npm install
 $ node download.js data/a.txt
 ```
 
-This will attempt to download the first 10 definitions for each word in the list into a file call `data/b.txt`. Data is stored in [NeDB databases][nedb], but you should be able to easily update `download.js` to output whatever format you need.
+This will attempt to download the first 10 definitions for each word in the list into a file `data/a.txt`. Data is stored in [NeDB databases][nedb], but you should be able to easily update `download.js` to output whatever format you need.
 
 
 ### `gen_csv.py`
