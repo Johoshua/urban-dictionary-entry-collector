@@ -61,12 +61,13 @@ const q = async.queue((task, callback) => {
 /**
     Download all entries for a single letter.
 */
-const process = (files) => {
+const processData = (files) => {
     if (!files.length)
         return;
-    
+
+    const file = files[0];
     const lineReader = readline.createInterface({
-        input: fs.createReadStream(file[0])
+        input: fs.createReadStream(file)
     });
     
     const DB_FILE = path.join(ROOT, file + '.db');
@@ -94,5 +95,5 @@ const files = process.argv.slice(2);
 if (!files.length) {
     console.error('No files provided');
 } else {
-    process(files);
+    processData(files);
 }
